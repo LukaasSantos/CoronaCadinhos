@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Cadinhos | Líder Nacional em Insumos para Fundição</title>
+    
+    <!-- Meta tags SEO essenciais -->
+    <meta name="description" content="A Corona Cadinhos é líder no mercado nacional e internacional de fundição. Fabricante de cadinhos de carbeto de silício, grafite-argila, fornos e refratários de alta performance.">
+    <meta name="keywords" content="Corona Cadinhos, Fundição, Cadinho de Carbeto de Silício, Cadinho de Grafite, Fornos para Cadinhos, Concretos Refratários, Insumos de Fundição">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.coronacadinhos.com.br/">
+
+    <!-- Tailwind CSS (Play CDN para desenvolvimento ágil) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        corona: {
+                            light: '#ff8e43',
+                            DEFAULT: '#E8640A',
+                            dark: '#c75204'
+                        },
+                        darkAccent: '#0c0c0e',
+                        cardAccent: '#16161a'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- AOS.js (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Estilos customizados e overrides -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-darkAccent text-gray-200 min-h-screen flex flex-col">
+
+    <!-- HEADER / MENU SUPERIOR -->
+    <header class="sticky top-0 z-50 glass-nav transition-all duration-300 w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-4">
+                <!-- Logo -->
+                <div class="flex-shrink">
+                    <a href="#home">
+                        <img class="h-8 sm:h-10 md:h-12 max-w-[180px] sm:max-w-xs object-contain" src="assets/img/Logotipo_Corona_Horizontal.png" alt="Corona Cadinhos Logo">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 text-sm font-semibold tracking-wide uppercase flex-shrink-0">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-corona transition duration-200">Home</a>
+                    <a href="#quem-somos" class="nav-link text-gray-300 hover:text-corona transition duration-200">Quem Somos</a>
+                    <a href="#produtos" class="nav-link text-gray-300 hover:text-corona transition duration-200">Produtos</a>
+                    <a href="#universidade" class="nav-link text-gray-300 hover:text-corona transition duration-200">Universidade Corona</a>
+                    <a href="#contatos" class="nav-link text-gray-300 hover:text-corona transition duration-200">Contatos</a>
+                </nav>
+
+                <!-- Botão de Ação Rápida Desktop -->
+                <div class="hidden md:block flex-shrink-0">
+                    <a href="https://coronacadinhos.commercesuite.com.br/" target="_blank" class="inline-flex items-center px-4 py-2 border border-corona text-sm font-medium rounded-full text-white bg-corona hover:bg-corona-dark hover:border-corona-dark transition duration-300 ease-in-out shadow-lg shadow-corona/20">
+                        Loja Virtual
+                    </a>
+                </div>
+
+                <!-- Hamburguer Menu Mobile Button -->
+                <div class="md:hidden flex-shrink-0">
+                    <button id="menu-btn" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Abrir menu</span>
+                        <!-- Heroicon: Menu -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay (SPA Dynamic Slide/Fade) -->
+        <div id="mobile-menu" class="fixed top-20 left-0 right-0 bottom-0 z-50 bg-black/90 backdrop-blur-lg flex flex-col justify-center items-center opacity-0 pointer-events-none transition-all duration-300 transform translate-y-[-10px] mt-0.5">
+            <!-- Links Mobile Centralizados e Animados -->
+            <nav class="flex flex-col space-y-8 text-center text-xl font-bold uppercase tracking-wider">
+                <a href="#home" class="mobile-nav-link text-gray-300 hover:text-corona transition duration-200">Home</a>
+                <a href="#quem-somos" class="mobile-nav-link text-gray-300 hover:text-corona transition duration-200">Quem Somos</a>
+                <a href="#produtos" class="mobile-nav-link text-gray-300 hover:text-corona transition duration-200">Produtos</a>
+                <a href="#universidade" class="mobile-nav-link text-gray-300 hover:text-corona transition duration-200">Universidade Corona</a>
+                <a href="#contatos" class="mobile-nav-link text-gray-300 hover:text-corona transition duration-200">Contatos</a>
+                <a href="https://coronacadinhos.commercesuite.com.br/" target="_blank" class="px-6 py-3 bg-corona hover:bg-corona-dark text-white rounded-full transition duration-300 shadow-md">Loja Virtual</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL (Pré-renderizado para indexação SEO e hidratado via hash) -->
+    <main class="flex-grow">
+
+        <!-- ================= SEÇÃO: HOME ================= -->
+        <section id="home" class="block">
+            <!-- Hero Banner -->
+            <div class="relative min-h-[85vh] flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(12, 12, 14, 0.8), rgba(12, 12, 14, 0.95)), url('assets/img/4.jpg');">
+                <div class="max-w-4xl mx-auto px-4 text-center" data-aos="fade-up">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-corona/20 text-corona mb-6 tracking-widest uppercase border border-corona/30">Líder Nacional</span>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6 uppercase">
+                        Fornecimento de Produtos e Insumos para <span class="text-gradient-corona">Fundição</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+                        Líder no mercado nacional e reconhecida internacionalmente por fornecer produtos de altíssima qualidade para mais de 35 países.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="https://drive.google.com/file/d/1CHhtQaVbwdnlB49s5uWfgLt4sGybLemj/view" target="_blank" class="px-8 py-4 bg-corona hover:bg-corona-dark text-white font-bold rounded-full transition duration-300 shadow-lg shadow-corona/30 transform hover:-translate-y-0.5">
+                            Baixar Catálogo Completo
+                        </a>
+                        <a href="#produtos" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-bold rounded-full transition duration-300 backdrop-blur border border-white/10">
+                            Conhecer Produtos
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tópicos de Diferenciais -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Diferencial 1 -->
+                    <div class="glass-effect rounded-2xl p-8 border border-white/5 corona-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-12 h-12 bg-corona/10 text-corona flex items-center justify-center rounded-xl mb-6">
+                            <!-- Heroicon: LightBulb -->
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Soluções Inteligentes</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Setor especializado no desenvolvimento de projetos customizados para proporcionar a melhor atualização técnica aos nossos clientes.
+                        </p>
+                    </div>
+
+                    <!-- Diferencial 2 -->
+                    <div class="glass-effect rounded-2xl p-8 border border-white/5 corona-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-12 h-12 bg-corona/10 text-corona flex items-center justify-center rounded-xl mb-6">
+                            <!-- Heroicon: TrendingUp -->
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Produtividade & Custo Benefício</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Desenvolvemos produtos projetados especificamente para proporcionar a melhor qualidade e durabilidade para as fundições mundiais.
+                        </p>
+                    </div>
+
+                    <!-- Diferencial 3 -->
+                    <div class="glass-effect rounded-2xl p-8 border border-white/5 corona-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-12 h-12 bg-corona/10 text-corona flex items-center justify-center rounded-xl mb-6">
+                            <!-- Heroicon: ShieldCheck -->
+                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Suporte Técnico Qualificado</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Disponibilizamos suporte técnico composto por profissionais altamente qualificados e experientes no ramo da fundição industrial.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grade Rápida do Portfólio -->
+            <div class="bg-gradient-dark py-20 border-t border-white/5">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 class="text-3xl font-extrabold text-white mb-4 uppercase">Conheça nosso Portfólio</h2>
+                    <p class="text-gray-400 mb-12 max-w-2xl mx-auto">Os produtos ideais para a fundição de metais não ferrosos</p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <!-- Carbeto de Silicio -->
+                        <div class="bg-cardAccent/50 p-6 rounded-2xl border border-white/5 flex flex-col items-center">
+                            <img class="h-32 object-contain mb-4 transform hover:scale-105 transition duration-300" src="assets/img/Silicio.png" alt="Linha Carbeto de Silício">
+                            <span class="text-sm font-semibold">Linha Carbeto de Silício</span>
+                        </div>
+                        <!-- Grafite Argila -->
+                        <div class="bg-cardAccent/50 p-6 rounded-2xl border border-white/5 flex flex-col items-center">
+                            <img class="h-32 object-contain mb-4 transform hover:scale-105 transition duration-300" src="assets/img/Grafite.png" alt="Linha Grafite e Argila">
+                            <span class="text-sm font-semibold">Linha Grafite / Argila</span>
+                        </div>
+                        <!-- Fornos -->
+                        <div class="bg-cardAccent/50 p-6 rounded-2xl border border-white/5 flex flex-col items-center">
+                            <img class="h-32 object-contain mb-4 transform hover:scale-105 transition duration-300" src="assets/img/forno.png" alt="Fornos Elétricos a Gás e Óleo">
+                            <span class="text-sm font-semibold">Fornos Elétricos, Gás e Óleo</span>
+                        </div>
+                        <!-- Filtros -->
+                        <div class="bg-cardAccent/50 p-6 rounded-2xl border border-white/5 flex flex-col items-center">
+                            <img class="h-32 object-contain mb-4 transform hover:scale-105 transition duration-300" src="assets/img/FILTROS.png" alt="Filtros Corona">
+                            <span class="text-sm font-semibold">Filtros Corona</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-12 flex justify-center gap-4">
+                        <a href="#produtos" class="px-6 py-3 bg-corona hover:bg-corona-dark text-white text-sm font-bold rounded-full transition">Ver Todos os Produtos</a>
+                        <a href="https://drive.google.com/file/d/1CHhtQaVbwdnlB49s5uWfgLt4sGybLemj/view" target="_blank" class="px-6 py-3 bg-white/10 hover:bg-white/20 text-white text-sm font-bold rounded-full transition">Catálogo Completo</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presença Global -->
+            <div class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-extrabold text-white mb-4 uppercase">Atuamos em Todos os Continentes</h2>
+                <p class="text-gray-400 mb-8 max-w-xl mx-auto">Nossos cadinhos atravessam oceanos para equipar indústrias em mais de 35 países.</p>
+                <div class="flex justify-center" data-aos="zoom-in">
+                    <img class="max-h-[450px] w-auto object-contain opacity-90" src="assets/img/Mapa.png" alt="Mapa de exportação da Corona Cadinhos">
+                </div>
+            </div>
+
+            <!-- Seção de Depoimentos / Carrossel clientes -->
+            <div class="bg-gradient-dark py-20 border-t border-b border-white/5">
+                <div class="max-w-4xl mx-auto px-4 text-center">
+                    <h2 class="text-2xl font-bold uppercase tracking-wider text-corona mb-10">Avaliações de Clientes</h2>
+                    
+                    <div class="min-h-[220px] flex items-center justify-center">
+                        <!-- Depoimento 1 -->
+                        <div class="testimonial-card block transition duration-500 ease-in-out" data-aos="fade-in">
+                            <p class="text-xl italic text-gray-300 mb-6">"Excelente produto, qualidade incomparável. Utilizamos os cadinhos da Corona há muitos anos e nunca nos decepcionou."</p>
+                            <img class="h-10 mx-auto mb-2 object-contain" src="assets/img/Fundic_a_o_Sa_o_Jose__branco.png" alt="São José Fundição logo">
+                            <span class="text-xs uppercase font-bold tracking-widest text-gray-400">São José Fundição</span>
+                        </div>
+
+                        <!-- Depoimento 2 -->
+                        <div class="testimonial-card hidden transition duration-500 ease-in-out">
+                            <p class="text-xl italic text-gray-300 mb-6">"Parceria de longa data. Produtos confiáveis e suporte técnico exemplar da equipe Corona."</p>
+                            <img class="h-10 mx-auto mb-2 object-contain" src="assets/img/Pro_tork_branco.png" alt="Pro Tork logo">
+                            <span class="text-xs uppercase font-bold tracking-widest text-gray-400">Pro Tork</span>
+                        </div>
+
+                        <!-- Depoimento 3 -->
+                        <div class="testimonial-card hidden transition duration-500 ease-in-out">
+                            <p class="text-xl italic text-gray-300 mb-6">"Qualidade reconhecida internacionalmente. Os melhores cadinhos do mercado sem dúvida."</p>
+                            <img class="h-10 mx-auto mb-2 object-contain" src="assets/img/Rei_Branco.png" alt="Rei Auto Parts logo">
+                            <span class="text-xs uppercase font-bold tracking-widest text-gray-400">Rei Auto Parts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Presença em Feiras -->
+            <div class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-extrabold text-white uppercase mb-4">Presença Global em Eventos</h2>
+                    <p class="text-gray-400 max-w-xl mx-auto">Acompanhe a nossa participação nas maiores feiras industriais e exposições do segmento de fundição.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="rounded-xl overflow-hidden shadow-lg border border-white/5">
+                        <img class="w-full h-64 object-cover hover:scale-105 transition duration-300" src="assets/img/WhatsApp_Image_2022-05-02_at_12.08.06__2_.jpeg" alt="Corona em Feira de Negócios">
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-lg border border-white/5">
+                        <img class="w-full h-64 object-cover hover:scale-105 transition duration-300" src="assets/img/WhatsApp_Image_2022-05-02_at_12.08.07.jpeg" alt="Estande Corona Cadinhos">
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-lg border border-white/5">
+                        <img class="w-full h-64 object-cover hover:scale-105 transition duration-300" src="assets/img/WhatsApp_Image_2022-06-13_at_13.15.18__1_.jpeg" alt="Equipe Corona Cadinhos">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action Qualidade -->
+            <div class="relative py-24 bg-cover bg-center" style="background-image: linear-gradient(rgba(232, 100, 10, 0.9), rgba(12, 12, 14, 0.95)), url('assets/img/1.jpg');">
+                <div class="max-w-4xl mx-auto px-4 text-center">
+                    <h2 class="text-4xl font-extrabold text-white mb-6 uppercase">Qualidade Reconhecida Internacionalmente</h2>
+                    <p class="text-lg text-gray-200 mb-8 max-w-xl mx-auto">Oferecemos a durabilidade e eficiência térmica que a sua linha de produção exige.</p>
+                    <a href="#contatos" class="inline-flex px-8 py-4 bg-white text-corona font-extrabold rounded-full transition hover:bg-gray-100 shadow-xl">Falar com Consultor</a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= SEÇÃO: QUEM SOMOS ================= -->
+        <section id="quem-somos" class="hidden py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Título -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold uppercase text-white tracking-tight">Conheça a <span class="text-gradient-corona">Corona Cadinhos</span></h2>
+                    <p class="text-gray-400 mt-2">Uma história de dedicação e liderança industrial de capital 100% brasileiro.</p>
+                </div>
+
+                <!-- Vídeo e História Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
+                    <div data-aos="fade-right">
+                        <!-- Imagem representativa do complexo aéreo da fábrica -->
+                        <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                            <img class="w-full object-cover" src="assets/img/aerea.jpg" alt="Vista aérea da Corona Cadinhos">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                                <div>
+                                    <span class="text-xs font-bold text-corona tracking-wider uppercase">Fábrica Diadema - SP</span>
+                                    <p class="text-sm text-gray-300">Nossa estrutura de produção e desenvolvimento nacional</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6" data-aos="fade-left">
+                        <h3 class="text-2xl font-bold text-white uppercase">Nossa História</h3>
+                        <p class="text-gray-300 leading-relaxed font-light">
+                            Fundada em Diadema, São Paulo, a Corona Cadinhos nasceu como uma empresa produzindo uma pequena linha de produtos de carbeto de silício, que inclui cadinhos, bases, lixas e cimento para pequenas fusões.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed font-light">
+                            Afirmada com seu compromisso firme com seus clientes, em pouco tempo a empresa passou a vender para toda a América Latina. Em 1981 exportou seu primeiro cadinho para a América do Norte e, posteriormente, Alemanha, tornando-se a primeira empresa de capital 100% nacional a fazer parte do mercado internacional de fundição na Inglaterra.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed font-light">
+                            Já em 1997, a Corona consolidou sua posição no mercado internacional, participando do CIF na Alemanha. Desde então, a Corona sempre está presente em todas as articulações mais importantes em todo o setor de fundição. Atualmente, a Corona Cadinhos é líder no mercado nacional e reconhecida internacionalmente pela qualidade de seus produtos, oferecendo uma completa linha de cadinhos de carbeto de silício e grafite-argila, fornos e produtos de tratamento de metais não-ferrosos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- ISO 9001 e Política de Qualidade -->
+                <div class="bg-cardAccent/40 border border-white/5 rounded-3xl p-8 sm:p-12">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-8 space-y-6" data-aos="fade-right">
+                            <div class="flex items-center space-x-4">
+                                <img class="h-16 w-auto object-contain bg-white p-1 rounded-md" src="assets/img/ISO.png" alt="Logo Certificação ISO">
+                                <h3 class="text-2xl font-bold text-white">Certificação ISO 9001</h3>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed font-light">
+                                Os objetivos da empresa sempre estiveram voltados para a prestação de um ótimo atendimento aos clientes, com pronta-entrega de produtos e visando a qualidade. A Corona foi a primeira empresa do segmento no Brasil a conquistar a certificação ISO 9001:1998, processo essencial no nosso compromisso pela qualidade.
+                            </p>
+                            
+                            <div class="pt-4">
+                                <h4 class="text-lg font-bold text-corona mb-4">Política de Qualidade:</h4>
+                                <ul class="space-y-3 text-gray-300 text-sm">
+                                    <li class="flex items-start">
+                                        <span class="text-corona mr-2">→</span> Comprometer e atender às necessidades dos clientes;
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-corona mr-2">→</span> Buscar melhorias contínuas dos nossos produtos;
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-corona mr-2">→</span> Buscar o desenvolvimento do quadro funcional;
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-corona mr-2">→</span> Perseguir a melhoria contínua do sistema, através do atendimento dos requisitos do sistema de gestão de qualidade.
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="pt-4">
+                                <a href="https://drive.google.com/file/d/1G60NHZzyJ-UhUEB7WUjL7QnSxySklzPD/view" target="_blank" class="inline-flex items-center text-corona hover:text-corona-light font-bold text-sm">
+                                    <span>Visualizar Certificado Completo</span>
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Galeria de Imagens da Auditoria/Qualidade -->
+                        <div class="lg:col-span-4 grid grid-cols-2 gap-4" data-aos="fade-left">
+                            <img class="rounded-xl w-full h-32 object-cover" src="assets/img/IMG_8913.JPEG" alt="Equipamento Laboratório">
+                            <img class="rounded-xl w-full h-32 object-cover" src="assets/img/IMG_8919.JPEG" alt="Produção Qualidade">
+                            <img class="rounded-xl w-full h-32 object-cover" src="assets/img/IMG_5562.JPEG" alt="Matéria prima de alta resistência">
+                            <img class="rounded-xl w-full h-32 object-cover border border-corona/40" src="assets/img/Certificado_ISO_9001_2.png" alt="Diploma Certificado ISO">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= SEÇÃO: PRODUTOS ================= -->
+        <section id="produtos" class="hidden py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Cabeçalho de Produtos -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold uppercase text-white">Nossos <span class="text-gradient-corona">Produtos</span></h2>
+                    <p class="text-gray-400 mt-2 max-w-2xl mx-auto">Fabricamos uma gama completa de materiais e insumos refratários de alta estabilidade térmica e resistência mecânica para o mercado de fundição nacional e internacional.</p>
+                </div>
+
+                <!-- Grid de Produtos Premium (9 Itens) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Produto 1 -->
+                    <div class="glass-effect rounded-3xl p-6 border border-white/5 flex flex-col justify-between corona-card">
+                        <div>
+                            <div class="h-48 flex items-center justify-center mb-6 bg-black/40 rounded-2xl overflow-hidden p-4">
+                                <img class="max-h-full max-w-full object-contain" src="assets/img/Linha_Carbeto.png" alt="Linha Carbeto de Silício">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Linha Carbeto de Silício</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Alta resistência mecânica e durabilidade otimizada para a fundição de ligas de metais não ferrosos.</p>
+                        </div>
+                        <a href="#contatos" class="w-full text-center py-3 bg-corona/10 hover:bg-corona text-corona hover:text-white rounded-xl transition font-bold text-sm">Consultar Especialista</a>
+                    </div>
+
+                    <!-- Produto 2 -->
+                    <div class="glass-effect rounded-3xl p-6 border border-white/5 flex flex-col justify-between corona-card">
+                        <div>
+                            <div class="h-48 flex items-center justify-center mb-6 bg-black/40 rounded-2xl overflow-hidden p-4">
+                                <img class="max-h-full max-w-full object-contain" src="assets/img/linha_Grafite.png" alt="Linha Grafite e Argila">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Linha Grafite / Argila</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Excelente condutividade térmica e resistência superior a choques térmicos frequentes.</p>
+                        </div>
+                        <a href="#contatos" class="w-full text-center py-3 bg-corona/10 hover:bg-corona text-corona hover:text-white rounded-xl transition font-bold text-sm">Consultar Especialista</a>
+                    </div>
+
+                    <!-- Produto 3 -->
+                    <div class="glass-effect rounded-3xl p-6 border border-white/5 flex flex-col justify-between corona-card">
+                        <div>
+                            <div class="h-48 flex items-center justify-center mb-6 bg-black/40 rounded-2xl overflow-hidden p-4">
+                                <img class="max-h-full max-w-full object-contain" src="assets/img/corona_coatings.png" alt="Corona Coatings">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Corona Coatings</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Revestimentos especiais aplicados para proteção extra contra erosão química, estendendo a vida útil dos cadinhos.</p>
+                        </div>
+                        <a href="#contatos" class="w-full text-center py-3 bg-corona/10 hover:bg-corona text-corona hover:text-white rounded-xl transition font-bold text-sm">Consultar Especialista</a>
+                    </div>
+
+                    <!-- Produto 4 -->
+                    <div class="glass-effect rounded-3xl p-6 border border-white/5 flex flex-col justify-between corona-card">
+                        <div>
+                            <div class="h-48 flex items-center justify-center mb-6 bg-black/40 rounded-2xl overflow-hidden p-4">
+                                <img class="max-h-full max-w-full object-contain" src="assets/img/Corona-Plast-Cromo-2_1.png" alt="Massas Plásticas e Massas Moldáveis">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Massas Plásticas e Moldáveis</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Soluções de revestimentos refratários versáteis formulados para reparo e calafetagem rápida em fornos.</p>
+                        </div>
+                        <a href="#contatos" class="w-full text-center py-3 bg-corona/10 hover:bg-corona text-corona hover:text-white rounded-xl transition font-bold text-sm">Consultar Especialista</a>
+                    </div>
+
+                    <!-- Produto 5 -->
+                    <div class="glass-effect rounded-3xl p-6 border border-white/5 flex flex-col justify-between corona-card">
+                        <div>
+                            <div class="h-48 flex items-center justify-center mb-6 bg-black/40 rounded-2xl overflow-hidden p-4">
+                                <img class="max-h-full max-w-full object-contain" src="assets/img/forno.png" alt="Fornos Elétricos a Gás e Óleo">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Fornos Elétricos, Gás e Óleo</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Equipamentos industriais de altíssima eficiência térmica desenvolvidos para processos de fusão e manutenção de ligas metálicas.</p>
+                        </div>
+                        <a href="#contatos" class="w-full text-center py-3 bg-corona/10 hover:bg-corona text-corona hover:text-white rounded-xl transition font-bold text-sm">Consultar Especialista</a>
+                    </div>
+
+                    <!-- Produto 6 -->
+                    <div class="glass-effect rounded-3xl p-6 border border-white/5 flex flex-col justify-between corona-card">
+                        <div>
+                            <div class="h-48 flex items-center justify-center mb-6 bg-black/40 rounded-2xl overflow-hidden p-4">
+                                <img class="max-h-full max-w-full object-contain" src="assets/img/Refractory_concrete_1.png" alt="Concretos Refratários">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Concretos Refratários</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Excepcional resistência mecânica e térmica formulada sob medida para as mais severas aplicações industriais.</p>
+                        </div>
+                        <a href="#contatos" class="w-full text-center py-3 bg-corona/10 hover:bg-corona text-corona hover:text-white rounded-xl transition font-bold text-sm">Consultar Especialista</a>
+                    </div>
+
+                    <!-- Produto 7 -->
+                    <div class="glass-effect rounded-3xl p-6 border border-white/5 flex flex-col justify-between corona-card">
+                        <div>
+                            <div class="h-48 flex items-center justify-center mb-6 bg-black/40 rounded-2xl overflow-hidden p-4">
+                                <img class="max-h-full max-w-full object-contain" src="assets/img/FILTROS.png" alt="Filtros Corona">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Filtros Corona</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Filtragem de alta porosidade para a retenção de óxidos e impurezas físicas durante o vazamento do metal líquido.</p>
+                        </div>
+                        <a href="#contatos" class="w-full text-center py-3 bg-corona/10 hover:bg-corona text-corona hover:text-white rounded-xl transition font-bold text-sm">Consultar Especialista</a>
+                    </div>
+
+                    <!-- Produto 8 -->
+                    <div class="glass-effect rounded-3xl p-6 border border-white/5 flex flex-col justify-between corona-card">
+                        <div>
+                            <div class="h-48 flex items-center justify-center mb-6 bg-black/40 rounded-2xl overflow-hidden p-4">
+                                <img class="max-h-full max-w-full object-contain" src="assets/img/panela_de_trasferencia.png" alt="Panelas de Transferência e Peças Monolíticas">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Panelas de Transferência</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Logística de vazamento segura com excelente isolamento térmico para metais não-ferrosos.</p>
+                        </div>
+                        <a href="#contatos" class="w-full text-center py-3 bg-corona/10 hover:bg-corona text-corona hover:text-white rounded-xl transition font-bold text-sm">Consultar Especialista</a>
+                    </div>
+
+                    <!-- Produto 9 -->
+                    <div class="glass-effect rounded-3xl p-6 border border-white/5 flex flex-col justify-between corona-card">
+                        <div>
+                            <div class="h-48 flex items-center justify-center mb-6 bg-black/40 rounded-2xl overflow-hidden p-4">
+                                <img class="max-h-full max-w-full object-contain" src="assets/img/Tampa_concreto_refrata_rio_copiar.png" alt="Tampas de Concreto">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Tampas de Concreto</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">Proteção contra perdas por radiação térmica e contenção otimizada para a boca do forno e do cadinho.</p>
+                        </div>
+                        <a href="#contatos" class="w-full text-center py-3 bg-corona/10 hover:bg-corona text-corona hover:text-white rounded-xl transition font-bold text-sm">Consultar Especialista</a>
+                    </div>
+                </div>
+
+                <!-- Chamada Comercial e Download -->
+                <div class="mt-16 bg-gradient-to-r from-corona to-corona-dark rounded-3xl p-8 sm:p-12 text-center text-white">
+                    <h3 class="text-2xl sm:text-3xl font-extrabold uppercase mb-4">O Melhor do Setor de Fundição</h3>
+                    <p class="max-w-xl mx-auto mb-8 text-gray-100 font-light">Garanta qualidade internacional e pronto atendimento na sua linha de produção de metais ferrosos e não-ferrosos.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="https://wa.me/5511963343339" target="_blank" class="px-8 py-4 bg-white text-corona font-bold rounded-full transition hover:bg-gray-100 shadow-md">Falar com Vendedor</a>
+                        <a href="https://drive.google.com/file/d/1CHhtQaVbwdnlB49s5uWfgLt4sGybLemj/view" target="_blank" class="px-8 py-4 bg-black/20 text-white font-bold rounded-full transition hover:bg-black/30 border border-white/20">Acessar Catálogo Digital</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= SEÇÃO: UNIVERSIDADE CORONA ================= -->
+        <section id="universidade" class="hidden py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Título -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold uppercase text-white tracking-tight">Universidade <span class="text-gradient-corona">Corona</span></h2>
+                    <p class="text-gray-400 mt-2 max-w-2xl mx-auto">Capacitação técnica para aumentar a vida útil dos seus cadinhos. Aprenda as melhores práticas de estocagem, manuseio e operação corretas.</p>
+                </div>
+
+                <!-- Banner da Seção -->
+                <div class="relative rounded-3xl overflow-hidden mb-16 border border-white/5 aspect-[21/9] max-h-[350px]">
+                    <img class="w-full h-full object-cover" src="assets/img/banne_princioal.jpg" alt="Equipamentos e laboratório de Universidade Corona">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent flex items-center p-8 sm:p-12">
+                        <div class="max-w-md">
+                            <span class="text-xs font-bold text-corona uppercase tracking-widest bg-corona/10 px-3 py-1 rounded-full border border-corona/30">Vídeos Técnicos</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white uppercase mt-4">Treinamentos e Tutoriais</h3>
+                            <p class="text-sm text-gray-300 mt-2">Dicas essenciais preparadas pela nossa equipe de suporte técnico e engenharia de aplicação.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grid de Vídeos Auxiliares -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Vídeo 1 -->
+                    <div class="glass-effect rounded-2xl overflow-hidden border border-white/5">
+                        <div class="aspect-video bg-black/60 flex items-center justify-center relative">
+                            <!-- Placeholder de Vídeo moderno com ícone Play -->
+                            <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-black/50">
+                                <div class="w-16 h-16 bg-corona text-white rounded-full flex items-center justify-center shadow-lg shadow-corona/50 hover:scale-110 transition duration-300 cursor-pointer">
+                                    <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mt-4">Vídeo: Como estocar e manusear o cadinho após recebê-lo?</h4>
+                                <p class="text-xs text-gray-400 mt-2">Orientações completas de desembalagem, armazenagem livre de umidade e inspeção inicial.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vídeo 2 -->
+                    <div class="glass-effect rounded-2xl overflow-hidden border border-white/5">
+                        <div class="aspect-video bg-black/60 flex items-center justify-center relative">
+                            <!-- Placeholder de Vídeo moderno com ícone Play -->
+                            <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-black/50">
+                                <div class="w-16 h-16 bg-corona text-white rounded-full flex items-center justify-center shadow-lg shadow-corona/50 hover:scale-110 transition duration-300 cursor-pointer">
+                                    <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                                <h4 class="text-lg font-bold text-white mt-4">Vídeo: Como utilizar o cadinho de acordo com cada forno?</h4>
+                                <p class="text-xs text-gray-400 mt-2">Ajuste de queimadores, rampas térmicas de aquecimento inicial e melhores práticas de fixação física.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= SEÇÃO: CONTATOS ================= -->
+        <section id="contatos" class="hidden py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Título -->
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold uppercase text-white tracking-tight">Contate a <span class="text-gradient-corona">Corona Cadinhos</span></h2>
+                    <p class="text-gray-400 mt-2">Estamos prontos para atender suas necessidades técnicas e comerciais em qualquer lugar do Brasil e do mundo.</p>
+                </div>
+
+                <!-- Grid Form / Contatos -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    
+                    <!-- Informações de Contato -->
+                    <div class="space-y-8" data-aos="fade-right">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white uppercase mb-6">Informações de Contato</h3>
+                            <p class="text-gray-400 text-sm">Fique à vontade para nos ligar, mandar uma mensagem no WhatsApp ou enviar um e-mail. Nossa equipe técnica responderá prontamente.</p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Endereço -->
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-corona/10 text-corona flex items-center justify-center rounded-xl">
+                                    <!-- Heroicon: MapPin -->
+                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-base font-bold text-white">Endereço</h4>
+                                    <p class="text-gray-400 text-sm mt-1">Av. Tiburcio, 478 – Casa Grande<br>Diadema – SP, Brasil</p>
+                                </div>
+                            </div>
+
+                            <!-- Telefones -->
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-corona/10 text-corona flex items-center justify-center rounded-xl">
+                                    <!-- Heroicon: Phone -->
+                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-base font-bold text-white">Telefones / WhatsApp</h4>
+                                    <p class="text-gray-400 text-sm mt-1">
+                                        +55 11 96334-3339 (Comercial / WhatsApp)<br>
+                                        +55 11 4061-7789 (Fixo)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-corona/10 text-corona flex items-center justify-center rounded-xl">
+                                    <!-- Heroicon: Mail -->
+                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-base font-bold text-white">E-mail</h4>
+                                    <p class="text-gray-400 text-sm mt-1">contato@coronacadinhos.com.br</p>
+                                </div>
+                            </div>
+
+                            <!-- Horário de Atendimento -->
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 w-12 h-12 bg-corona/10 text-corona flex items-center justify-center rounded-xl">
+                                    <!-- Heroicon: Clock -->
+                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-base font-bold text-white">Horário de Atendimento</h4>
+                                    <p class="text-gray-400 text-sm mt-1">
+                                        Segunda a Sexta: 08:00 - 18:00<br>
+                                        Sábado: 08:00 - 12:00
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Redes Sociais -->
+                        <div class="pt-6 border-t border-white/5 flex space-x-4">
+                            <a href="https://www.instagram.com/coronacadinhos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" target="_blank" class="w-10 h-10 bg-white/5 hover:bg-corona text-gray-300 hover:text-white rounded-full flex items-center justify-center transition">
+                                <span class="sr-only">Instagram</span>
+                                <!-- Simples SVG Instagram -->
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/company/coronacadinhos/?originalSubdomain=br" target="_blank" class="w-10 h-10 bg-white/5 hover:bg-corona text-gray-300 hover:text-white rounded-full flex items-center justify-center transition">
+                                <span class="sr-only">LinkedIn</span>
+                                <!-- Simples SVG Linkedin -->
+                                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Formulário de Mensagem -->
+                    <div class="glass-effect rounded-3xl p-8 border border-white/5" data-aos="fade-left">
+                        <h3 class="text-xl font-bold text-white mb-6">Envie uma Mensagem</h3>
+                        
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Nome Completo</label>
+                                <input type="text" id="name" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-corona transition duration-200">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">E-mail Corporativo</label>
+                                <input type="email" id="email" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-corona transition duration-200">
+                            </div>
+
+                            <div>
+                                <label for="phone" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Telefone de Contato</label>
+                                <input type="tel" id="phone" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-corona transition duration-200">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Sua Mensagem</label>
+                                <textarea id="message" rows="4" required class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-corona transition duration-200 resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 bg-corona hover:bg-corona-dark text-white font-bold rounded-xl transition duration-300 uppercase tracking-wider shadow-lg shadow-corona/20">
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER / RODAPÉ -->
+    <footer class="bg-black/90 border-t border-white/5 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <!-- Logo e Endereço -->
+            <div class="space-y-4">
+                <img class="h-10 w-auto object-contain" src="assets/img/Logotipo_Corona_Horizontal.png" alt="Corona Cadinhos Logo">
+                <p class="text-xs text-gray-400 leading-relaxed">
+                    Av. Tiburcio, 478 – Casa Grande<br>
+                    Diadema – SP, Brasil
+                </p>
+                <p class="text-xs text-gray-400">
+                    +55 11 96334-3339<br>
+                    +55 11 4061-7789
+                </p>
+            </div>
+
+            <!-- Links Rápidos (SPA) -->
+            <div>
+                <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Navegação</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#home" class="text-gray-400 hover:text-corona transition">Home</a></li>
+                    <li><a href="#quem-somos" class="text-gray-400 hover:text-corona transition">Quem Somos</a></li>
+                    <li><a href="#produtos" class="text-gray-400 hover:text-corona transition">Produtos</a></li>
+                    <li><a href="#universidade" class="text-gray-400 hover:text-corona transition">Universidade Corona</a></li>
+                    <li><a href="#contatos" class="text-gray-400 hover:text-corona transition">Contatos</a></li>
+                </ul>
+            </div>
+
+            <!-- Catálogos e Lojas -->
+            <div>
+                <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Links Úteis</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="https://coronacadinhos.commercesuite.com.br/" target="_blank" class="text-gray-400 hover:text-corona transition">Loja Virtual</a></li>
+                    <li><a href="https://drive.google.com/file/d/1CHhtQaVbwdnlB49s5uWfgLt4sGybLemj/view" target="_blank" class="text-gray-400 hover:text-corona transition">Baixar Catálogo Técnico</a></li>
+                    <li><a href="https://drive.google.com/file/d/1G60NHZzyJ-UhUEB7WUjL7QnSxySklzPD/view" target="_blank" class="text-gray-400 hover:text-corona transition">Certificado ISO 9001</a></li>
+                </ul>
+            </div>
+
+            <!-- Qualidade Certificada -->
+            <div>
+                <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Qualidade Certificada</h4>
+                <div class="flex items-center space-x-3">
+                    <img class="h-10 w-auto bg-white p-1 rounded" src="assets/img/ISO.png" alt="Selo ISO 9001">
+                    <span class="text-xs text-gray-400 leading-tight">Pioneira nacional com certificação ISO 9001 desde 1998.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/5 pt-8 text-center text-xs text-gray-500">
+            <p>&copy; 2026 Corona Cadinhos. Todos os direitos reservados. Projeto 100% Brasileiro.</p>
+        </div>
+    </footer>
+
+    <!-- Script Principal -->
+    <script src="app.js"></script>
+</body>
+</html>

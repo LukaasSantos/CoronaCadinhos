@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corona Cadinhos – Líder Nacional em Fundição</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #E8640A;
+    --orange-light: #F57C1F;
+    --dark: #1A1A1A;
+    --dark2: #2A2A2A;
+    --gray: #3D3D3D;
+    --gray-light: #F5F5F5;
+    --white: #FFFFFF;
+    --text: #333333;
+    --text-light: #666666;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Barlow', sans-serif; color: var(--text); background: var(--white); }
+
+  /* ─── TOP BAR ─── */
+  .topbar {
+    background: var(--dark);
+    padding: 6px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar-social a { color: #aaa; margin-right: 12px; font-size: 13px; text-decoration: none; }
+  .topbar-social a:hover { color: var(--orange); }
+  .whatsapp-btn {
+    background: #25D366;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .whatsapp-btn::before { content: "📱"; }
+
+  /* ─── NAVBAR ─── */
+  .navbar {
+    background: var(--white);
+    padding: 14px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-icon {
+    width: 46px;
+    height: 46px;
+    background: var(--orange);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+    font-size: 10px;
+    font-family: 'Barlow Condensed', sans-serif;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .logo-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 18px; color: var(--dark); line-height: 1.1; }
+  .logo-text span { display: block; color: var(--orange); font-size: 11px; font-weight: 600; letter-spacing: 1px; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--dark);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+
+  /* ─── PAGES ─── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    height: 480px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 60px 80px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #2a1500 0%, #5c2d00 40%, #8B4513 70%, #c0632a 100%);
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%);
+  }
+  /* Decorative factory elements */
+  .hero-decor {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 80% 30%, rgba(232,100,10,0.3) 0%, transparent 50%),
+      radial-gradient(circle at 60% 70%, rgba(255,150,50,0.2) 0%, transparent 40%);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 560px; }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 46px;
+    font-weight: 900;
+    color: var(--white);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .hero p { color: rgba(255,255,255,0.8); font-size: 15px; line-height: 1.6; max-width: 420px; }
+  .hero-btn {
+    display: inline-block;
+    margin-top: 28px;
+    background: var(--orange);
+    color: white;
+    padding: 12px 32px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .hero-btn:hover { background: var(--orange-light); transform: translateY(-2px); }
+
+  /* ─── SECTION TITLES ─── */
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .section-title.orange { color: var(--orange); }
+  .section-title.white { color: var(--white); }
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 14px;
+    margin-bottom: 48px;
+  }
+  .section-subtitle.white { color: rgba(255,255,255,0.7); }
+
+  /* ─── ABOUT INTRO ─── */
+  .about-intro {
+    background: var(--white);
+    padding: 64px 80px;
+    text-align: center;
+  }
+  .about-intro .tag {
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .about-intro h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+  .about-intro p { max-width: 720px; margin: 0 auto 32px; line-height: 1.7; color: var(--text-light); font-size: 15px; }
+
+  /* Video placeholder */
+  .video-placeholder {
+    max-width: 680px;
+    margin: 0 auto 32px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  }
+  .video-placeholder-inner {
+    background: linear-gradient(135deg, #1a0a00 0%, #4a2000 50%, #8B4513 100%);
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .play-btn {
+    width: 72px;
+    height: 72px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(232,100,10,0.5);
+  }
+  .play-btn::after { content: '▶'; color: white; font-size: 24px; margin-left: 4px; }
+  .video-caption { position: absolute; top: 12px; left: 16px; color: white; font-size: 13px; font-weight: 600; }
+  .video-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .video-tab {
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    color: var(--text-light);
+    background: white;
+    margin: 2px;
+    border-radius: 3px;
+  }
+  .video-tab.active { background: var(--orange); color: white; border-color: var(--orange); }
+
+  /* ─── FEATURES ─── */
+  .features {
+    background: var(--white);
+    padding: 48px 80px;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 16px;
+    color: var(--orange);
+    font-size: 36px;
+  }
+  .feature h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--dark);
+    margin-bottom: 10px;
+  }
+  .feature p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+  .feature-divider { width: 32px; height: 2px; background: var(--orange); margin: 14px auto 0; }
+
+  /* ─── PORTFOLIO ─── */
+  .portfolio {
+    padding: 64px 80px;
+    background: var(--white);
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .product-card {
+    background: var(--orange);
+    border-radius: 8px;
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(232,100,10,0.3); }
+  .product-card-img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 12px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+  }
+  .product-card h4 {
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+  .portfolio-cta { text-align: center; }
+
+  /* ─── BTN ORANGE ─── */
+  .btn-orange {
+    display: inline-block;
+    background: var(--orange);
+    color: white;
+    padding: 12px 36px;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    transition: background 0.2s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-orange:hover { background: var(--orange-light); transform: translateY(-2px); }
+  .btn-outline-orange {
+    display: inline-block;
+    border: 2px solid var(--orange);
+    color: var(--orange);
+    padding: 10px 32px;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-left: 12px;
+    transition: all 0.2s;
+    cursor: pointer;
+    background: transparent;
+  }
+  .btn-outline-orange:hover { background: var(--orange); color: white; }
+
+  /* ─── CONTINENTS ─── */
+  .continents {
+    padding: 64px 80px;
+    text-align: center;
+    background: var(--white);
+  }
+  .world-map {
+    max-width: 700px;
+    margin: 32px auto;
+    background: var(--gray-light);
+    border-radius: 8px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .world-map-svg {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+  }
+  .map-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--orange);
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 8px rgba(232,100,10,0.6);
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials {
+    background: var(--dark);
+    padding: 64px 80px;
+  }
+  .testimonials .section-title { color: var(--white); margin-bottom: 40px; }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .testimonial-card {
+    background: var(--dark2);
+    border-radius: 8px;
+    padding: 20px;
+    border-left: 3px solid var(--orange);
+  }
+  .testimonial-logo { color: var(--orange); font-weight: 800; font-size: 16px; margin-bottom: 10px; }
+  .testimonial-card p { color: rgba(255,255,255,0.7); font-size: 12px; line-height: 1.6; }
+
+  /* ─── CLIENTS ─── */
+  .clients-section {
+    background: var(--dark);
+    padding: 24px 80px 48px;
+    text-align: center;
+  }
+  .clients-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 24px;
+  }
+  .clients-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+  }
+  .client-logo {
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+    opacity: 0.8;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+  .client-logo.orange { color: var(--orange); }
+
+  /* ─── GLOBAL PRESENCE ─── */
+  .global-presence {
+    padding: 64px 80px;
+    background: var(--white);
+    text-align: center;
+  }
+  .photos-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+    max-width: 720px;
+    margin: 0 auto 32px;
+  }
+  .photo-placeholder {
+    height: 180px;
+    background: linear-gradient(135deg, #3d1a00 0%, #8B4513 100%);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+  }
+
+  /* ─── CTA DARK ─── */
+  .cta-dark {
+    background: var(--dark);
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(232,100,10,0.1) 0%, transparent 60%);
+  }
+  .cta-dark-content { position: relative; z-index: 1; }
+  .cta-tag { color: var(--orange); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .cta-dark h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.1;
+    max-width: 400px;
+    margin-bottom: 32px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--white);
+    padding: 48px 80px 24px;
+    border-top: 1px solid #eee;
+  }
+  .footer-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+  .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .footer-address { color: var(--text-light); font-size: 13px; line-height: 1.7; text-align: center; }
+  .footer-nav { display: flex; gap: 24px; }
+  .footer-nav a { color: var(--text-light); text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  .footer-nav a:hover { color: var(--orange); }
+  .footer-bottom {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-bottom p { color: #aaa; font-size: 12px; }
+  .footer-social { display: flex; gap: 12px; }
+  .footer-social a { color: #aaa; font-size: 13px; text-decoration: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .footer-social a:hover { background: var(--orange); border-color: var(--orange); color: white; }
+
+  /* ─── PRODUTOS PAGE ─── */
+  .produtos-hero {
+    background: linear-gradient(135deg, #1a0a00 0%, #3d1a00 40%, #6b3010 100%);
+    height: 320px;
+    display: flex;
+    align-items: flex-end;
+    padding: 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .produtos-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 100%);
+  }
+  .produtos-hero-content { position: relative; z-index: 1; }
+  .produtos-hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 52px;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.05;
+  }
+  .produtos-hero p { color: rgba(255,255,255,0.7); font-size: 14px; margin-top: 8px; }
+
+  .features-strip {
+    background: white;
+    padding: 48px 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+  .feature-strip-item h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 16px 0 8px;
+  }
+  .feature-strip-item p { font-size: 13px; color: var(--text-light); line-height: 1.6; font-style: italic; }
+  .feature-strip-divider { width: 24px; height: 2px; background: var(--orange); margin: 10px auto 0; }
+
+  .products-section {
+    background: var(--dark);
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                      radial-gradient(circle at 30% 50%, rgba(232,100,10,0.15) 0%, transparent 50%);
+    padding: 64px 80px;
+  }
+  .products-section .section-title { color: white; margin-bottom: 8px; }
+  .products-section .section-subtitle { color: rgba(255,255,255,0.6); margin-bottom: 48px; }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 40px;
+  }
+  .product-item {
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 32px 24px;
+    text-align: center;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .product-item:hover { background: rgba(232,100,10,0.15); }
+  .product-item-img {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .product-item-img .product-emoji { font-size: 60px; }
+  .product-item h4 {
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .product-item p { color: rgba(255,255,255,0.5); font-size: 12px; font-style: italic; }
+  .product-item-divider { width: 28px; height: 1px; background: rgba(232,100,10,0.4); margin: 12px auto 0; }
+  .products-cta { text-align: center; }
+
+  .products-bottom-cta {
+    background: var(--gray-light);
+    padding: 64px 80px;
+    text-align: center;
+  }
+  .products-bottom-cta .small-tag { color: var(--text-light); font-size: 12px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .products-bottom-cta h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--dark);
+    max-width: 600px;
+    margin: 0 auto 28px;
+    line-height: 1.1;
+  }
+
+  /* ─── SOBRE PAGE ─── */
+  .sobre-hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                linear-gradient(135deg, #2a1500 0%, #8B4513 100%);
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    padding: 48px 80px;
+  }
+  .sobre-hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.05;
+  }
+
+  .sobre-video-section {
+    background: var(--orange);
+    padding: 48px 80px;
+    text-align: center;
+  }
+  .sobre-video-inner {
+    background: rgba(0,0,0,0.3);
+    border-radius: 8px;
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .sobre-video-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .sobre-video-title h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .sobre-video-title p { color: rgba(255,255,255,0.9); font-size: 14px; }
+
+  .sobre-historia {
+    padding: 64px 80px;
+    background: white;
+  }
+  .sobre-historia-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .sobre-historia h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+  .sobre-historia p { color: var(--text-light); font-size: 14px; line-height: 1.8; margin-bottom: 16px; }
+  .sobre-historia-img {
+    height: 280px;
+    background: linear-gradient(135deg, #3d1a00, #8B4513);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 14px;
+  }
+
+  .sobre-dark-features {
+    background: var(--dark);
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+                      radial-gradient(circle at 50% 50%, rgba(232,100,10,0.1),transparent 60%);
+    padding: 64px 80px;
+  }
+  .sobre-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+  .sobre-feature-icon { font-size: 40px; margin-bottom: 16px; }
+  .sobre-feature h3 {
+    color: white;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .sobre-feature p { color: rgba(255,255,255,0.6); font-size: 12px; line-height: 1.7; }
+  .sobre-feature-div { width: 24px; height: 2px; background: var(--orange); margin: 12px auto 0; }
+
+  .iso-section {
+    background: white;
+    padding: 64px 80px;
+  }
+  .iso-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: center; }
+  .iso-badge {
+    width: 120px;
+    height: 120px;
+    border: 4px solid var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--orange);
+  }
+  .iso-content h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; color: var(--dark); margin-bottom: 12px; }
+  .iso-content p { color: var(--text-light); font-size: 14px; line-height: 1.7; }
+  .iso-photos { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 48px; }
+  .iso-photo { height: 140px; background: linear-gradient(135deg, #3d1a00, #8B4513); border-radius: 6px; }
+
+  .qualidade-section {
+    background: var(--gray-light);
+    padding: 48px 80px;
+  }
+  .qualidade-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
+  .qualidade-cert {
+    background: white;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .qualidade-cert h4 { font-size: 12px; color: var(--text-light); margin-bottom: 8px; }
+  .qualidade-cert .cert-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: var(--dark); }
+  .qualidade-right h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 800; text-transform: uppercase; color: var(--dark); margin-bottom: 16px; }
+  .qualidade-right p { color: var(--text-light); font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
+  .qualidade-list { list-style: none; }
+  .qualidade-list li { color: var(--text-light); font-size: 13px; padding: 8px 0; border-bottom: 1px solid #ddd; display: flex; align-items: center; gap: 8px; }
+  .qualidade-list li::before { content: '→'; color: var(--orange); font-weight: 700; }
+
+  /* ─── UNIVERSIDADE PAGE ─── */
+  .univ-hero {
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                linear-gradient(135deg, #1a0a00 0%, #8B4513 100%);
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .univ-header-card {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 32px 60px;
+    text-align: center;
+  }
+  .univ-header-card .logo-icon-lg {
+    width: 56px;
+    height: 56px;
+    background: var(--orange);
+    border-radius: 8px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+    font-size: 12px;
+  }
+  .univ-header-card h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    color: white;
+    font-size: 36px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .univ-header-card p { color: var(--orange); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-top: 4px; }
+
+  .videos-section {
+    padding: 64px 80px;
+    background: white;
+  }
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .video-card { cursor: pointer; }
+  .video-thumb {
+    background: var(--dark2);
+    border-radius: 8px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 12px;
+    transition: transform 0.2s;
+  }
+  .video-card:hover .video-thumb { transform: scale(1.02); }
+  .video-thumb-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(50,30,10,0.9), rgba(100,60,20,0.8));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .video-univ-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 4px;
+    padding: 6px 10px;
+    text-align: center;
+  }
+  .video-univ-badge span { color: white; font-size: 10px; font-weight: 700; text-transform: uppercase; display: block; }
+  .video-univ-badge .topic {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .video-presenter {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    color: var(--orange);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .video-presenter::before { content: '▲ '; font-size: 8px; }
+  .video-thumb .play-btn-sm {
+    width: 48px;
+    height: 48px;
+    background: var(--orange);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(232,100,10,0.5);
+    position: relative;
+    z-index: 2;
+  }
+  .video-thumb .play-btn-sm::after { content: '▶'; color: white; font-size: 16px; margin-left: 2px; }
+  .video-card h4 { font-size: 13px; color: var(--text); font-weight: 500; line-height: 1.4; }
+  .video-card h4 span { color: var(--orange); font-weight: 700; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  .page.active > * { animation: fadeIn 0.4s ease both; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .navbar, .topbar, .hero, .portfolio, .testimonials, .clients-section,
+    .global-presence, .cta-dark, .about-intro, .features, .continents,
+    .produtos-hero, .features-strip, .products-section, .products-bottom-cta,
+    .sobre-hero, .sobre-video-section, .sobre-historia, .sobre-dark-features,
+    .iso-section, .qualidade-section, .univ-hero, .videos-section, footer {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .portfolio-grid, .products-grid, .testimonials-grid, .features-grid,
+    .sobre-features-grid, .features-strip, .sobre-historia-grid, .qualidade-grid,
+    .iso-grid, .videos-grid, .photos-strip, .iso-photos {
+      grid-template-columns: 1fr !important;
+    }
+    .hero h1 { font-size: 34px; }
+    .clients-strip { gap: 24px; flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-social">
+    <a href="#">f</a>
+    <a href="#">ig</a>
+    <a href="#">in</a>
+  </div>
+  <a href="#" class="whatsapp-btn">WHATSAPP</a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">
+    <div class="logo-icon">OOO<br>CORONA</div>
+    <div class="logo-text">corona<br><span>cadinhos</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" class="nav-link active" data-page="home">Quem Somos</a></li>
+    <li><a href="#" class="nav-link" data-page="produtos">Produtos</a></li>
+    <li><a href="#" class="nav-link" data-page="home">Loja Virtual</a></li>
+    <li><a href="#" class="nav-link" data-page="universidade">Universidade Corona</a></li>
+    <li><a href="#" class="nav-link" data-page="home">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════ HOME PAGE ═══════════ -->
+<section id="home" class="page active">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-decor"></div>
+    <div class="hero-content">
+      <h1>Líder Nacional em Fornecimento de Produtos e Insumos para Fundição</h1>
+      <a href="#" class="hero-btn" onclick="switchPage('sobre'); return false;">Conheça a Corona</a>
+    </div>
+  </div>
+
+  <!-- ABOUT INTRO -->
+  <div class="about-intro">
+    <div class="tag">Uma Indústria 100% Brasileira, com Sucesso Mundial</div>
+    <p>A Corona Cadinhos é líder no mercado nacional e reconhecida internacionalmente por fornecer produtos para mais de 35 países.</p>
+
+    <!-- Video -->
+    <div class="video-placeholder">
+      <div class="video-placeholder-inner">
+        <span class="video-caption">▶ Corona Cadinhos</span>
+        <div class="play-btn"></div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="video-tabs">
+      <div class="video-tab active">Cadinhos de Carbeto de Silício</div>
+      <div class="video-tab">Cadinhos de Grafite/Argila</div>
+      <div class="video-tab">Fornos para cadinhos</div>
+      <div class="video-tab">Peças do Perfil</div>
+    </div>
+
+    <a href="#" class="btn-orange" onclick="switchPage('sobre'); return false;">Conheça a Corona</a>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <h3>Soluções Inteligentes e Customizadas</h3>
+        <p>Em vista dos inúmeros desenvolvimentos exigidos pelo mercado, temos um setor especializado no desenvolvimento de projetos para proporcionar a melhor atualização aos nossos clientes.</p>
+        <div class="feature-divider"></div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚙️</div>
+        <h3>Produtividade com o Melhor Custo Benefício</h3>
+        <p>Visando sempre o bem-estar do cliente, desenvolvemos produtos para proporcionar a melhor qualidade e durabilidade para as fundições.</p>
+        <div class="feature-divider"></div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎧</div>
+        <h3>Suporte Técnico Qualificado</h3>
+        <p>A Corona Cadinhos disponibiliza um setor de suporte técnico com excelentes profissionais treinados no ramo de fundição para fornecer excelente atendimento e suporte.</p>
+        <div class="feature-divider"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div class="portfolio">
+    <div class="section-title orange">Conheça Nosso Portfólio</div>
+    <div class="section-subtitle">Os produtos ideais para a fundição de metais não ferrosos</div>
+    <div class="portfolio-grid">
+      <div class="product-card">
+        <div class="product-card-img">🏺</div>
+        <h4>Linha Carbeto de Silício</h4>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">⬛</div>
+        <h4>Linha Grafite / Argila</h4>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">🪣</div>
+        <h4>Fornos Elétricos, a Gás e a Óleo</h4>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">🔩</div>
+        <h4>Filtros Corona</h4>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">🏗️</div>
+        <h4>Panelas de Transferência e Peças Monolíticas</h4>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">⭕</div>
+        <h4>Tampas de Concreto</h4>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">🪣</div>
+        <h4>Massas Plásticas e Massas Moldáveis</h4>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">🟠</div>
+        <h4>Corona Coatings</h4>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img">📦</div>
+        <h4>Concretos Refratários</h4>
+      </div>
+    </div>
+    <div class="portfolio-cta">
+      <a href="#" class="btn-orange" onclick="switchPage('produtos'); return false;">Ver Produtos</a>
+    </div>
+  </div>
+
+  <!-- CONTINENTS -->
+  <div class="continents">
+    <div class="section-title orange">Atuamos em Todos os Continentes</div>
+    <p style="color:var(--text-light);max-width:540px;margin:0 auto 8px;font-size:14px;">A Corona Cadinhos é líder no mercado nacional e reconhecida internacionalmente por fornecer produtos para todos os continentes.</p>
+    <div class="world-map">
+      <svg class="world-map-svg" viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+        <!-- Simplified world map shapes -->
+        <rect width="700" height="280" fill="#e8e8e8" rx="6"/>
+        <!-- Americas -->
+        <ellipse cx="175" cy="110" rx="60" ry="70" fill="#ccc" opacity="0.8"/>
+        <!-- Europe/Africa -->
+        <ellipse cx="340" cy="120" rx="45" ry="65" fill="#ccc" opacity="0.8"/>
+        <!-- Asia -->
+        <ellipse cx="490" cy="100" rx="80" ry="60" fill="#ccc" opacity="0.8"/>
+        <!-- Australia -->
+        <ellipse cx="570" cy="200" rx="40" ry="30" fill="#ccc" opacity="0.8"/>
+        <!-- Dots -->
+        <circle cx="160" cy="100" r="7" fill="#E8640A"/>
+        <circle cx="340" cy="110" r="7" fill="#E8640A"/>
+        <circle cx="480" cy="95" r="7" fill="#E8640A"/>
+        <circle cx="570" cy="200" r="7" fill="#E8640A"/>
+        <circle cx="195" cy="170" r="7" fill="#E8640A"/>
+        <!-- Continent labels -->
+        <text x="155" y="160" font-size="10" fill="#888" text-anchor="middle" font-family="Barlow, sans-serif">AMERICAS</text>
+        <text x="340" y="170" font-size="10" fill="#888" text-anchor="middle" font-family="Barlow, sans-serif">EUROPA/AFRICA</text>
+        <text x="490" y="155" font-size="10" fill="#888" text-anchor="middle" font-family="Barlow, sans-serif">ASIA</text>
+        <text x="570" y="225" font-size="10" fill="#888" text-anchor="middle" font-family="Barlow, sans-serif">OCEANIA</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="testimonials">
+    <div class="section-title">Avaliações de Quem Já Comprou Corona Cadinhos</div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-logo">SÃO JOSÉ</div>
+        <p>Excelente produto, qualidade incomparável. Utilizamos os cadinhos da Corona há muitos anos e nunca nos decepcionou.</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-logo">WG Fundição</div>
+        <p>Ótimo atendimento e produtos de alta qualidade. Recomendamos a todos do setor de fundição.</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-logo" style="color:#FF6600;">PRO TORK</div>
+        <p>Parceria de longa data. Produtos confiáveis e suporte técnico exemplar da equipe Corona.</p>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-logo" style="color:#FFD700;">◆ REI</div>
+        <p>Qualidade reconhecida internacionalmente. Os melhores cadinhos do mercado sem dúvida.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLIENTS -->
+  <div class="clients-section">
+    <div class="clients-title">Alguns dos Nossos Clientes</div>
+    <div class="clients-strip">
+      <div class="client-logo">❮</div>
+      <div class="client-logo orange">SÃO JOSÉ<br><small style="font-size:10px;font-weight:400;">FUNDIÇÃO</small></div>
+      <div class="client-logo">◆ REI<br><small style="font-size:10px;font-weight:400;">METALÚRGICA</small></div>
+      <div class="client-logo" style="color:#FF6600;">PRO TORK</div>
+      <div class="client-logo">❯</div>
+    </div>
+  </div>
+
+  <!-- GLOBAL PRESENCE -->
+  <div class="global-presence">
+    <div class="section-title orange" style="margin-bottom:8px;">Presença Global</div>
+    <p style="color:var(--text-light);font-size:14px;margin-bottom:36px;">Acompanhe a nossa presença nas maiores feiras e eventos internacionais do segmento de fundição.</p>
+    <div class="photos-strip">
+      <div class="photo-placeholder">Feira Itália</div>
+      <div class="photo-placeholder">Feira Pará</div>
+      <div class="photo-placeholder">Feira São Paulo – FMetal</div>
+    </div>
+    <a href="#" class="btn-orange">Ver Galeria</a>
+    <a href="#" class="btn-outline-orange">Ver Eventos</a>
+  </div>
+
+  <!-- CTA DARK -->
+  <div class="cta-dark">
+    <div class="cta-dark-content">
+      <div class="cta-tag">Corona Cadinhos</div>
+      <h2>Qualidade Reconhecida Internacionalmente</h2>
+      <a href="#" class="btn-orange" onclick="switchPage('sobre'); return false;">Saiba Mais</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div style="text-align:center;margin-bottom:24px;">
+      <div class="footer-logo" style="justify-content:center;">
+        <div class="logo-icon">OOO<br>CORONA</div>
+        <div class="logo-text">corona<br><span>cadinhos</span></div>
+        <div style="margin-left:16px;font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;border-left:3px solid var(--orange);padding-left:12px;">100% Nacional<br><span style="color:#aaa;font-weight:400;">Reconhecimento Global</span></div>
+      </div>
+      <div class="footer-address">
+        Av. Tiburcio, 478 – Casa Grande, Diadema – SP<br>
+        +55 11 96334-3339<br>
+        +55 11 4061-7789
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:24px;margin-bottom:24px;">
+      <a href="#" class="nav-link" data-page="sobre" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Quem Somos</a>
+      <a href="#" class="nav-link" data-page="produtos" style="color:var(--orange);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Produtos</a>
+      <a href="#" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Loja Virtual</a>
+      <a href="#" class="nav-link" data-page="universidade" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Universidade Corona</a>
+      <a href="#" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Contato</a>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2023 Todos os direitos reservados.</p>
+      <div class="footer-social">
+        <a href="#">f</a>
+        <a href="#">ig</a>
+        <a href="#">in</a>
+      </div>
+    </div>
+  </footer>
+
+</section>
+
+<!-- ═══════════ PRODUTOS PAGE ═══════════ -->
+<section id="produtos" class="page">
+
+  <div class="produtos-hero">
+    <div class="produtos-hero-content">
+      <h1>Qualidade<br>Incomparável</h1>
+      <p>Os produtos ideais para fundição de metais ferrosos e não ferrosos</p>
+    </div>
+  </div>
+
+  <div class="features-strip">
+    <div class="feature-strip-item">
+      <div style="font-size:36px;">💡</div>
+      <h3>Soluções Inteligentes e Customizadas</h3>
+      <p><em>Em vista dos inúmeros desenvolvimentos exigidos pelo mercado, temos um setor especializado no desenvolvimento de projetos para proporcionar a melhor atualização aos nossos clientes.</em></p>
+      <div class="feature-strip-divider"></div>
+    </div>
+    <div class="feature-strip-item">
+      <div style="font-size:36px;">⚙️</div>
+      <h3>Produtividade com o Melhor Custo Benefício</h3>
+      <p><em>Visando sempre o bem-estar do cliente, desenvolvemos produtos para proporcionar a melhor qualidade e durabilidade.</em></p>
+      <div class="feature-strip-divider"></div>
+    </div>
+    <div class="feature-strip-item">
+      <div style="font-size:36px;">🎧</div>
+      <h3>Suporte Técnico Qualificado</h3>
+      <p><em>A Corona Cadinhos disponibiliza um setor de suporte técnico com excelentes profissionais treinados no ramo de fundição.</em></p>
+      <div class="feature-strip-divider"></div>
+    </div>
+  </div>
+
+  <div class="products-section">
+    <div class="section-title white">Conheça Nossa Linha de Produtos</div>
+    <div class="products-grid">
+      <div class="product-item">
+        <div class="product-item-img"><span class="product-emoji">🏺</span></div>
+        <h4>Linha Carbeto de Silício</h4>
+        <p>Descrição técnica do produto.</p>
+        <div class="product-item-divider"></div>
+      </div>
+      <div class="product-item">
+        <div class="product-item-img"><span class="product-emoji">⬛</span></div>
+        <h4>Linha Grafite/Argila</h4>
+        <p>Descrição técnica do produto.</p>
+        <div class="product-item-divider"></div>
+      </div>
+      <div class="product-item">
+        <div class="product-item-img"><span class="product-emoji">🪣</span></div>
+        <h4>Corona Coatings</h4>
+        <p>Descrição técnica do produto.</p>
+        <div class="product-item-divider"></div>
+      </div>
+      <div class="product-item">
+        <div class="product-item-img"><span class="product-emoji">🧱</span></div>
+        <h4>Massas Plásticas e Massas Moldáveis</h4>
+        <p>Descrição técnica do produto.</p>
+        <div class="product-item-divider"></div>
+      </div>
+      <div class="product-item">
+        <div class="product-item-img"><span class="product-emoji">🔥</span></div>
+        <h4>Fornos Elétricos, a Gás e a Óleo</h4>
+        <p>Descrição técnica do produto.</p>
+        <div class="product-item-divider"></div>
+      </div>
+      <div class="product-item">
+        <div class="product-item-img"><span class="product-emoji">📦</span></div>
+        <h4>Concretos Refratários</h4>
+        <p>Descrição técnica do produto.</p>
+        <div class="product-item-divider"></div>
+      </div>
+      <div class="product-item">
+        <div class="product-item-img"><span class="product-emoji">🔩</span></div>
+        <h4>Filtros Corona</h4>
+        <p>Descrição técnica do produto.</p>
+        <div class="product-item-divider"></div>
+      </div>
+      <div class="product-item">
+        <div class="product-item-img"><span class="product-emoji">🏗️</span></div>
+        <h4>Panelas de Transferência e Peças Monolíticas</h4>
+        <p>Descrição técnica do produto.</p>
+        <div class="product-item-divider"></div>
+      </div>
+      <div class="product-item">
+        <div class="product-item-img"><span class="product-emoji">⭕</span></div>
+        <h4>Tampas de Concreto</h4>
+        <p>Descrição técnica do produto.</p>
+        <div class="product-item-divider"></div>
+      </div>
+    </div>
+    <div class="products-cta">
+      <a href="#" class="btn-orange">Baixar Catálogo Completo</a>
+    </div>
+  </div>
+
+  <div class="products-bottom-cta">
+    <div class="small-tag">O Melhor do Setor de Fundição</div>
+    <h2>Linha Completa de Produtos para Fundição de Metais Ferrosos e Não Ferrosos</h2>
+    <a href="#" class="btn-orange">Falar com um Vendedor</a>
+  </div>
+
+  <!-- FOOTER (produtos) -->
+  <footer>
+    <div style="text-align:center;margin-bottom:24px;">
+      <div class="footer-logo" style="justify-content:center;">
+        <div class="logo-icon">OOO<br>CORONA</div>
+        <div class="logo-text">corona<br><span>cadinhos</span></div>
+        <div style="margin-left:16px;font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;border-left:3px solid var(--orange);padding-left:12px;">100% Nacional<br><span style="color:#aaa;font-weight:400;">Reconhecimento Global</span></div>
+      </div>
+      <div class="footer-address">
+        Av. Eldorado, 478 – Casa Grande, Diadema – SP<br>
+        +55 11 96334-3339<br>
+        +55 11 4061-7789
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:24px;margin-bottom:24px;">
+      <a href="#" class="nav-link" data-page="sobre" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Quem Somos</a>
+      <a href="#" class="nav-link" data-page="produtos" style="color:var(--orange);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Produtos</a>
+      <a href="#" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Loja Virtual</a>
+      <a href="#" class="nav-link" data-page="universidade" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Universidade Corona</a>
+      <a href="#" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Contato</a>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2023 Todos os direitos reservados.</p>
+      <div class="footer-social">
+        <a href="#">f</a><a href="#">ig</a><a href="#">in</a>
+      </div>
+    </div>
+  </footer>
+
+</section>
+
+<!-- ═══════════ SOBRE PAGE ═══════════ -->
+<section id="sobre" class="page">
+
+  <div class="sobre-hero">
+    <div>
+      <h1>Conheça a<br>Corona Cadinhos</h1>
+    </div>
+  </div>
+
+  <!-- Video section -->
+  <div class="sobre-video-section">
+    <div class="sobre-video-inner">
+      <div class="sobre-video-title">
+        <div style="font-size:24px;font-weight:900;color:white;font-family:'Barlow Condensed',sans-serif;line-height:1;">Conheça a</div>
+        <h2>Corona<br>Cadinhos</h2>
+        <p>com Fabio Dequech</p>
+      </div>
+      <div class="play-btn" style="position:absolute;bottom:24px;right:24px;"></div>
+    </div>
+  </div>
+
+  <!-- NOSSA HISTÓRIA -->
+  <div class="sobre-historia">
+    <div class="sobre-historia-grid">
+      <div>
+        <h2>Nossa História</h2>
+        <p>Fundada em Diadema, São Paulo, a Corona Cadinhos nasceu como uma empresa produzindo uma pequena linha de produtos de carbeto de silício, que inclui cadinhos, bases, lixas e cimento para pequenas fusões.</p>
+        <p>Afirmada com seu compromisso firme com seus clientes, em pouco tempo a empresa passou a vender para toda a América Latina. Em 1981 exportou seu primeiro cadinho para a América do Norte e, a Alemanha, tornando-se a primeira empresa de capital 100% nacional a fazer parte do mercado internacional de fundição na Inglaterra, e finalmente começou a fazer parte do mercado internacional.</p>
+        <p>Já em 1997, a Corona consolidou sua posição no mercado internacional, participando do CIF na Alemanha, tornando-se assim a única empresa de capital 100% nacional. Desde então, a Corona sempre está presente em todas as articulações mais importantes em todo o setor de fundição. Atualmente, a Corona Cadinhos é líder no mercado nacional e reconhecida internacionalmente pela qualidade de seus produtos, oferecendo uma completa linha de cadinhos de carbeto de silício e grafite – argila, fornos e produtos de tratamento de metais não-ferrosos.</p>
+        <a href="#" class="btn-orange" style="margin-top:16px;">Baixar Catálogo Completo</a>
+      </div>
+      <div class="sobre-historia-img">Imagem da fábrica</div>
+    </div>
+  </div>
+
+  <!-- DARK FEATURES -->
+  <div class="sobre-dark-features">
+    <div class="sobre-features-grid">
+      <div class="sobre-feature">
+        <div class="sobre-feature-icon">💡</div>
+        <h3>Soluções Inteligentes e Customizadas</h3>
+        <p>Em vista dos inúmeros desenvolvimentos exigidos pelo mercado, temos um setor especializado em desenvolvimento de projetos para proporcionar a melhor atualização aos nossos clientes.</p>
+        <div class="sobre-feature-div"></div>
+      </div>
+      <div class="sobre-feature">
+        <div class="sobre-feature-icon">⚙️</div>
+        <h3>Produtividade com o Melhor Custo Benefício</h3>
+        <p>Visando sempre o bem-estar do cliente, desenvolvemos produtos para proporcionar a melhor qualidade e durabilidade.</p>
+        <div class="sobre-feature-div"></div>
+      </div>
+      <div class="sobre-feature">
+        <div class="sobre-feature-icon">🎧</div>
+        <h3>Suporte Técnico Qualificado</h3>
+        <p>A Corona Cadinhos disponibiliza um setor de suporte técnico com excelentes profissionais treinados no ramo de fundição para fornecer excelente atendimento e suporte.</p>
+        <div class="sobre-feature-div"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ISO -->
+  <div class="iso-section">
+    <div class="iso-grid">
+      <div style="text-align:center;">
+        <div class="iso-badge">ISO</div>
+      </div>
+      <div class="iso-content">
+        <h3>Certificação ISO 9001</h3>
+        <p>Os objetivos da empresa sempre estiveram voltados para a prestação de um ótimo atendimento aos clientes, com pronta-entrega de produtos e visando a qualidade. A Corona foi a primeira empresa do segmento no Brasil a conquistar a certificação ISO 9001:1998, processo essencial no nosso compromisso pela qualidade.</p>
+      </div>
+    </div>
+    <div class="iso-photos">
+      <div class="iso-photo"></div>
+      <div class="iso-photo"></div>
+      <div class="iso-photo"></div>
+    </div>
+  </div>
+
+  <!-- QUALIDADE -->
+  <div class="qualidade-section">
+    <div class="section-title orange" style="margin-bottom:32px;">Política da Qualidade</div>
+    <div class="qualidade-grid">
+      <div>
+        <div class="qualidade-cert">
+          <h4>ISO 9001</h4>
+          <div class="cert-logo">BUREAU VERITAS<br>Certification</div>
+          <a href="#" class="btn-orange" style="margin-top:16px;font-size:11px;padding:8px 16px;">Clique aqui e veja o certificado</a>
+        </div>
+      </div>
+      <div class="qualidade-right">
+        <h3>Política da Qualidade</h3>
+        <p>A Corona Cadinhos, empresa nacional fabricante de cadinhos e componentes para fundição, atua no mercado nacional e internacional, buscando superar as necessidades e expectativas de seus clientes.</p>
+        <p>Para atingir nossos objetivos buscamos:</p>
+        <ul class="qualidade-list">
+          <li>Comprometer e atender às necessidades dos clientes;</li>
+          <li>Buscar melhorias contínuas dos nossos produtos;</li>
+          <li>Buscar o desenvolvimento do quadro funcional;</li>
+          <li>Perseguir a melhoria contínua do sistema, através do atendimento dos requisitos do sistema de gestão de qualidade.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTINENTS SOBRE -->
+  <div class="continents">
+    <div class="section-title orange">Atuamos em Todos os Continentes</div>
+    <p style="color:var(--text-light);max-width:600px;margin:0 auto 8px;font-size:14px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">A Corona Cadinhos é líder no mercado nacional e reconhecida internacionalmente por fornecer cadinhos para todos os continentes.</p>
+    <div class="world-map">
+      <svg class="world-map-svg" viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+        <rect width="700" height="280" fill="#e8e8e8" rx="6"/>
+        <ellipse cx="175" cy="110" rx="60" ry="70" fill="#ccc" opacity="0.8"/>
+        <ellipse cx="340" cy="120" rx="45" ry="65" fill="#ccc" opacity="0.8"/>
+        <ellipse cx="490" cy="100" rx="80" ry="60" fill="#ccc" opacity="0.8"/>
+        <ellipse cx="570" cy="200" rx="40" ry="30" fill="#ccc" opacity="0.8"/>
+        <circle cx="160" cy="100" r="7" fill="#E8640A"/>
+        <circle cx="340" cy="110" r="7" fill="#E8640A"/>
+        <circle cx="480" cy="95" r="7" fill="#E8640A"/>
+        <circle cx="570" cy="200" r="7" fill="#E8640A"/>
+        <circle cx="195" cy="170" r="7" fill="#E8640A"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO SOBRE -->
+  <div class="portfolio" style="background:var(--gray-light);">
+    <div class="section-title orange">Conheça Nosso Portfólio</div>
+    <div class="section-subtitle">Os produtos ideais para fundição de metais ferrosos</div>
+    <div class="portfolio-grid">
+      <div class="product-card"><div class="product-card-img">🏺</div><h4>Linha Carbeto de Silício</h4></div>
+      <div class="product-card"><div class="product-card-img">⬛</div><h4>Linha Grafite / Argila</h4></div>
+      <div class="product-card"><div class="product-card-img">🔥</div><h4>Fornos Elétricos, a Gás e a Óleo</h4></div>
+      <div class="product-card"><div class="product-card-img">🔩</div><h4>Filtros Corona</h4></div>
+      <div class="product-card"><div class="product-card-img">🏗️</div><h4>Panelas de Transferência e Peças Monolíticas</h4></div>
+      <div class="product-card"><div class="product-card-img">⭕</div><h4>Tampas de Concreto</h4></div>
+      <div class="product-card"><div class="product-card-img">🧱</div><h4>Massas Plásticas e Massas Moldáveis</h4></div>
+      <div class="product-card"><div class="product-card-img">🟠</div><h4>Corona Coatings</h4></div>
+      <div class="product-card"><div class="product-card-img">📦</div><h4>Concretos Refratários</h4></div>
+    </div>
+    <div class="portfolio-cta">
+      <a href="#" class="btn-orange" onclick="switchPage('produtos'); return false;">Ver Produtos</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div style="text-align:center;margin-bottom:24px;">
+      <div class="footer-logo" style="justify-content:center;">
+        <div class="logo-icon">OOO<br>CORONA</div>
+        <div class="logo-text">corona<br><span>cadinhos</span></div>
+        <div style="margin-left:16px;font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;border-left:3px solid var(--orange);padding-left:12px;">100% Nacional<br><span style="color:#aaa;font-weight:400;">Reconhecimento Global</span></div>
+      </div>
+      <div class="footer-address">
+        Av. Eldorado, 478 – Casa Grande, Diadema – SP<br>
+        +55 11 96334-3339<br>
+        +55 11 4061-7789
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:24px;margin-bottom:24px;">
+      <a href="#" class="nav-link" data-page="sobre" style="color:var(--orange);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Quem Somos</a>
+      <a href="#" class="nav-link" data-page="produtos" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Produtos</a>
+      <a href="#" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Loja Virtual</a>
+      <a href="#" class="nav-link" data-page="universidade" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Universidade Corona</a>
+      <a href="#" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Contato</a>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2023 Todos os direitos reservados.</p>
+      <div class="footer-social"><a href="#">f</a><a href="#">ig</a><a href="#">in</a></div>
+    </div>
+  </footer>
+
+</section>
+
+<!-- ═══════════ UNIVERSIDADE PAGE ═══════════ -->
+<section id="universidade" class="page">
+
+  <div class="univ-hero">
+    <div class="univ-header-card">
+      <div class="logo-icon-lg">OOO</div>
+      <h1>Universidade</h1>
+      <p>Corona Cadinhos</p>
+    </div>
+  </div>
+
+  <div class="videos-section">
+    <div class="videos-grid">
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-bg">
+            <div class="video-univ-badge">
+              <span>Universidade</span>
+              <span class="topic">Cadinhos</span>
+            </div>
+            <div class="play-btn-sm"></div>
+            <div class="video-presenter">Félix</div>
+          </div>
+        </div>
+        <h4>Aprenda a usar os nossos cadinhos</h4>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-bg">
+            <div class="video-univ-badge">
+              <span>Universidade</span>
+              <span class="topic">Recebimento, Estocagem e Manuseio</span>
+            </div>
+            <div class="play-btn-sm"></div>
+            <div class="video-presenter">Gabriel</div>
+          </div>
+        </div>
+        <h4>Como estocar e manusear o cadinho após recebê-lo?</h4>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-bg">
+            <div class="video-univ-badge">
+              <span>Universidade</span>
+              <span class="topic">Fornos</span>
+            </div>
+            <div class="play-btn-sm"></div>
+            <div class="video-presenter">Gabriel</div>
+          </div>
+        </div>
+        <h4>Como utilizar o <span>cadinho</span> de acordo com cada forno?</h4>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-bg">
+            <div class="video-univ-badge">
+              <span>Universidade</span>
+              <span class="topic">Choque Mecânico</span>
+            </div>
+            <div class="play-btn-sm"></div>
+            <div class="video-presenter">Félix</div>
+          </div>
+        </div>
+        <h4>Cuidados para evitar trincas no cadinho por choque mecânico</h4>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-bg">
+            <div class="video-univ-badge">
+              <span>Universidade</span>
+              <span class="topic">Choque Térmico</span>
+            </div>
+            <div class="play-btn-sm"></div>
+            <div class="video-presenter">Félix</div>
+          </div>
+        </div>
+        <h4>Saiba identificar se o cadinho sofreu um choque térmico</h4>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-bg">
+            <div class="video-univ-badge">
+              <span>Universidade</span>
+              <span class="topic">Oxidação</span>
+            </div>
+            <div class="play-btn-sm"></div>
+            <div class="video-presenter">Félix</div>
+          </div>
+        </div>
+        <h4>Como evitar a oxidação do cadinho?</h4>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-bg">
+            <div class="video-univ-badge">
+              <span>Universidade</span>
+              <span class="topic">Cadinho Grafite/Argila</span>
+            </div>
+            <div class="play-btn-sm"></div>
+            <div class="video-presenter">Félix</div>
+          </div>
+        </div>
+        <h4><span>Cadinho</span> de grafite/argila: personalização e diferenciais para fundição!</h4>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-bg">
+            <div class="video-univ-badge">
+              <span>Universidade</span>
+              <span class="topic">Cadinhos e Copelas</span>
+            </div>
+            <div class="play-btn-sm"></div>
+            <div class="video-presenter">Gabriel</div>
+          </div>
+        </div>
+        <h4><span>Cadinhos</span> e copelas: essenciais para análises geológicas em laboratórios e mineradoras!</h4>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-bg">
+            <div class="video-univ-badge">
+              <span>Universidade</span>
+              <span class="topic">Filtros Corona</span>
+            </div>
+            <div class="play-btn-sm"></div>
+            <div class="video-presenter">Rodrigo</div>
+          </div>
+        </div>
+        <h4>Filtros Corona: eficiência na filtração de impurezas em metais</h4>
+      </div>
+
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-bg">
+            <div class="video-univ-badge">
+              <span>Universidade</span>
+              <span class="topic">Eixos e Rotores Corona</span>
+            </div>
+            <div class="play-btn-sm"></div>
+            <div class="video-presenter">Rodrigo</div>
+          </div>
+        </div>
+        <h4>Eixos e rotores Corona: eficiência no tratamento de <span>alumínio</span>!</h4>
+      </div>
+
+    </div>
+
+    <div style="margin-top:40px;">
+      <div class="video-card" style="max-width:420px;">
+        <div class="video-thumb">
+          <div class="video-thumb-bg">
+            <div class="video-univ-badge">
+              <span>Universidade</span>
+              <span class="topic">Refratários Corona</span>
+            </div>
+            <div class="play-btn-sm"></div>
+            <div class="video-presenter">Gabriel</div>
+          </div>
+        </div>
+        <h4>Refratários Corona: aplicações práticas e diferenciais para fornos industriais</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div style="text-align:center;margin-bottom:24px;">
+      <div class="footer-logo" style="justify-content:center;">
+        <div class="logo-icon">OOO<br>CORONA</div>
+        <div class="logo-text">corona<br><span>cadinhos</span></div>
+        <div style="margin-left:16px;font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;border-left:3px solid var(--orange);padding-left:12px;">100% Nacional<br><span style="color:#aaa;font-weight:400;">Reconhecimento Global</span></div>
+      </div>
+      <div class="footer-address">
+        Av. Eldorado, 478 – Casa Grande, Diadema – SP<br>
+        +55 11 96334-3339<br>
+        +55 11 4061-7789
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:24px;margin-bottom:24px;">
+      <a href="#" class="nav-link" data-page="sobre" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Quem Somos</a>
+      <a href="#" class="nav-link" data-page="produtos" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Produtos</a>
+      <a href="#" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Loja Virtual</a>
+      <a href="#" class="nav-link" data-page="universidade" style="color:var(--orange);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Universidade Corona</a>
+      <a href="#" style="color:var(--text-light);font-size:13px;font-weight:600;text-transform:uppercase;text-decoration:none;">Contato</a>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2023 Todos os direitos reservados.</p>
+      <div class="footer-social"><a href="#">f</a><a href="#">ig</a><a href="#">in</a></div>
+    </div>
+  </footer>
+
+</section>
+
+<script>
+  function switchPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(name).classList.add('active');
+    document.querySelectorAll('.nav-links a, .nav-link').forEach(a => {
+      a.classList.remove('active');
+      if (a.dataset.page === name) a.classList.add('active');
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Nav clicks
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const page = a.dataset.page || 'home';
+      switchPage(page);
+    });
+  });
+
+  // Footer / inline nav-link clicks
+  document.addEventListener('click', e => {
+    const el = e.target.closest('.nav-link');
+    if (el && el.dataset.page) {
+      e.preventDefault();
+      switchPage(el.dataset.page);
+    }
+  });
+
+  // Video tabs
+  document.querySelectorAll('.video-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.video-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
